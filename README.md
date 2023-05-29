@@ -18,3 +18,7 @@ This is a repository containing a model and web app that allows some to take a p
 ## Streamlit Web App
 
 [Streamlit App](https://amaye15-oscarnet-app-dan7ea.streamlit.app/)
+
+## Tutorial
+
+[Demo](https://youtu.be/gwq-4lnV5KM)
