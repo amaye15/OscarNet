@@ -3,8 +3,7 @@ from PIL import Image
 import io
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.callbacks import TensorBoard, LearningRateScheduler, Callback
-from tensorflow.keras.preprocessing.image import load_img, ImageDataGenerator
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 # Streamlit app
 _, title_col, _ = st.columns(3)
@@ -58,6 +57,17 @@ model.load_weights("model_weights.h5")
 
 if image_data is not None:
     # Convert the returned bytes array to an image
-    image = load_img(io.BytesIO(image_data.getvalue()), grayscale=False, target_size=image_size)
+    img = load_img(io.BytesIO(image_data.getvalue()), grayscale=False, target_size=image_size)
+    # Convert the image to a numpy array and normalize it
+    img = img_to_array(img) / 255.0
 
-    #st.image(image, caption='Captured Image.', use_column_width=True)
+    # Reshape the image into a batch of size 1
+    img = img.reshape(1, image_size[0], image_size[1])
+
+    # Use the model to predict the class of the image
+    prediction = model.predict(img)
+
+    # The output is a probability distribution over the 10 classes, so we take the class with the highest probability as the prediction
+    predicted_class = prediction.argmax()
+
+    st.title(f"Predicted class: {class_names[predicted_class]}")
