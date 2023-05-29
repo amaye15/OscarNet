@@ -1,7 +1,9 @@
 
 # OscarNet
 
-![oscar](oscar.png =250x250)
+<p align="center">
+  <img src="https://github.com/amaye15/OscarNet/blob/master/oscar.png?raw=true" alt="Sublime's custom image"/>
+</p>
 
 ## About 
 This is a repository containing a model and web app that allows some to take a photo and predict the object class, specifically related to rubbish. 
