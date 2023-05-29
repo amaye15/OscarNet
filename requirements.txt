@@ -1,0 +1,7 @@
+tensorflow_addons 
+vit-keras 
+opencv-python 
+kaggle 
+tensorboard-plugin-profile
+numpy
+keras
