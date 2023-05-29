@@ -62,7 +62,7 @@ if image_data is not None:
     img = img_to_array(img) / 255.0
 
     # Reshape the image into a batch of size 1
-    img = img.reshape(1, image_size[0], image_size[1])
+    img = img.reshape(1, image_size[0], image_size[1], 3)
 
     # Use the model to predict the class of the image
     prediction = model.predict(img)
